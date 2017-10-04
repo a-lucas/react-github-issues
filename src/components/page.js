@@ -5,6 +5,7 @@ import IssueList from './issueList';
 import GithubURL from './githubUrl';
 import FilterList from './filterList';
 
+
 const Page = () => {
 	return (
 		<div>
@@ -22,7 +23,7 @@ const Page = () => {
 
 			</Menu>
 
-			<Container text style={{ marginTop: '7em' }}>
+			<Container text style={{ marginTop: '10em' }}>
 				<IssueList />
 			</Container>
 		</div>

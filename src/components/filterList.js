@@ -1,9 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {arrayOf, shape} from 'prop-types';
-import Filter from './filter';
+import Filter from './dumbos/filter';
 import {actions} from '../constants';
 import {Form} from 'semantic-ui-react';
+
+
 
 const FilterList = ({filters, onChange}) => {
 	return (<Form inverted>

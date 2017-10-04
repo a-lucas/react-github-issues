@@ -31,7 +31,6 @@ GithubUrl.propTypes = {
 
 
 const mapStateToProps = (state, props) => {
-	console.log('STATE', state);
 	return Object.assign({}, props, {
 		repoUrl: state.issueURL,
 	});
@@ -40,7 +39,6 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => {
 	return Object.assign({}, props, {
 		changeRepoFn: (newURL) => {
-			console.log('newURL', newURL)
 			if (newURL !== props.repoUrl) {
 				dispatch({
 					type: actions.SET_ISSUE_URL,

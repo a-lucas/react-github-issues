@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Dimmer, Loader, Segment, Item} from 'semantic-ui-react';
-import Issue from './issue';
+import Issue from './dumbos/issue';
 import {arrayOf, shape, number} from 'prop-types';
 import {pageStatus} from '../constants';
 import {loadGithubIssues} from '../actionCreators';
 import FilterList from './filterList';
+import Welcome from './dumbos/welcome';
 
 const mapStateToProps = (state, props) => {
 	return Object.assign({}, props, state);
@@ -16,7 +17,6 @@ const mapDispatchToProps = (dispatch, props) => {
 };
 
 const filterTheIssues = (issues, filters) => {
-		console.log('filter issues', issues, filters);
 		return issues.filter((issue) => {
 				return filters.reduce((acc, filter) => {
 					let show;
@@ -25,11 +25,10 @@ const filterTheIssues = (issues, filters) => {
 							show =  filter.selected.length === 0 || filter.selected.indexOf(issue.state) >= 0;
 							if (!show || !acc) return false;
 							return acc;
-
 						case 'tags':
 							const labelKeys = issue.labels.map(label => label.id);
-							console.log('Labels, ', labelKeys, 'Selected', filter.selected);
-							show =   filter.selected.length === 0 || labelKeys.reduce((acc2, labelKey) => acc2 ? acc2 : filter.selected.map(parseInt).indexOf(labelKey) >= 0, false);
+							show =   filter.selected.length === 0 ||
+								labelKeys.reduce((acc2, labelKey) => acc2 ? acc2 : filter.selected.map(s=>parseInt(s, 10)).indexOf(labelKey) >= 0, false);
 							if (!show || !acc) return false;
 							return acc;
 					}
@@ -39,7 +38,7 @@ const filterTheIssues = (issues, filters) => {
 
 const IssueList = ({issues, status, availableFilters}) => {
 	switch (status) {
-		case pageStatus.pristine: return (<div>PRISTINE</div>);
+		case pageStatus.pristine: return <Welcome/>;
 		case pageStatus.loading: return (<Segment>
 			<Dimmer active>
 				<Loader content='Loading' />

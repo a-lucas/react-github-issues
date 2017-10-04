@@ -13,8 +13,6 @@ import Page from './components/page';
 
 const store = createStore(pageReducer);
 
-console.log('STORE = ', store);
-
 render(
 	<Provider store={store}>
 		<Page />

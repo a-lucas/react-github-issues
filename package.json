@@ -11,7 +11,7 @@
   "author": "Antoine LUCAS",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^0.10.0",
+    "http-server": "^0.10.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

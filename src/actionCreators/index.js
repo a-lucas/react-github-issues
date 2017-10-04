@@ -23,16 +23,13 @@ export const loadGithubIssues =  (dispatch, url) => {
 	dispatch({
 		type: actions.LOAD_GITHUB_ISSUES,
 	});
-	console.log('Fetching URL', url);
 	fetch(`https://api.github.com/repos/${url}/issues`).then(res => {
-		console.log(res);
 		return res.json();
 	}).then((json) => {
 		dispatch({
 			type: actions.GITHUB_ISSUES_LOADED,
 			payload: json,
 		});
-		console.log('TAGS', extractTagsFromIssues(json));
 		dispatch({
 			type: actions.UPDATE_TAGS,
 			payload: extractTagsFromIssues(json),

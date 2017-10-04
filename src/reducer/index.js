@@ -50,7 +50,6 @@ export const pageReducer = (state = defaultState, action) => {
 				error: action.payload,
 			});
 		case actions.FILTER:
-			console.log('ACTION = ', action);
 			const newFilter = state.availableFilters.map((filter) => {
 				if (filter.name === action.payload.name) {
 					return Object.assign({}, filter, {
