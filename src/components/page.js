@@ -11,7 +11,7 @@ const Page = () => {
 		<div>
 			<Menu fixed='top' inverted fluid widths={3}>
 
-					<Menu.Item as='a' header>
+					<Menu.Item as='a' header href="https://github.com/a-lucas/react-github-issues">
 						Github Issue Vizualizer
 					</Menu.Item>
 					<Menu.Item>
